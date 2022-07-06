@@ -2,14 +2,14 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: traefik-dashboard-api-ingress
-  namespace: default
+  namespace: traefik
 spec:
   routes:
   - match: Host(`traefik.localhost`) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))
     kind: Rule
     middlewares:
     - name: admin-basic-auth
-      namespace: default
+      namespace: traefik
     services:
     - name: api@internal
       kind: TraefikService

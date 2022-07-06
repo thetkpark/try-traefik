@@ -5,4 +5,5 @@ data:
 kind: Secret
 metadata:
   name: ingress-tls
+  namespace: traefik
 type: kubernetes.io/tls
